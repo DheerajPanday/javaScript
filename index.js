@@ -221,60 +221,54 @@ var productList = [
     }
   ];
 
-  {/*<h2 class="section-heading">Clothing for Men and Women</h2>
-            <div class="card-conatiner" id="clothingCards">
-                <div class="card" id="1">
-                    <a>
-                        <div class="img">
-                            <img src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/7579188/2018/11/5/08a7b230-ee8f-46c0-a945-4e835a3c01c01541402833619-United-Colors-of-Benetton-Men-Sweatshirts-1271541402833444-1.jpg">
+  
+{/*<div class="card">
+                <div class="img">
+                    <img src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/7579188/2018/11/5/08a7b230-ee8f-46c0-a945-4e835a3c01c01541402833619-United-Colors-of-Benetton-Men-Sweatshirts-1271541402833444-1.jpg">
 
-                        </div>
-                        <div class="details">
-                            <h3>Men Navy Blue Solid Sweatshirts</h3>
-                            <h4>United Colors of Benetton</h4>
-                        </div>
-                    </a>
                 </div>
-                <div class="card" id="2"></div>
-                <div class="card" id="3"></div>
-                <div class="card" id="4"></div>
-                <div class="card" id="5"></div>
-            </div>
-          </section>
-          
-      
-         
-          <section id="accessories">
-           
-            <h2 class="section-heading">Accessories for Men and Women</h2>
-            <div class="card-conatiner" id="accessoriesCards"></div>*/}
-
-
-
+                <div class="details">
+                    <h3>Men Navy Blue Solid Sweatshirts</h3>
+                    <h4>United Colors of Benetton</h4>
+                </div>
             
-            
-var firstHeading = document.getElementsByClassName('section-heading');
-var heading1 = document.createElement('h2');
-heading1.innerHTML = "Clothing for Men and Women";
-heading1.className = "section-heading";
-console.log(heading1);
+</div>*/}
+
+function clothing(imgUrl, clothingTitle, brand){
+var mainGrid = document.getElementById('card-container');
 
 
-var mainGrid = document.getElementsByClassName('card-container');
+
 var mainCard = document.createElement('div');
-mainCard.className = "card-container";
+mainCard.className = "card";
+var thumbnail = document.createElement('div');
+mainCard.appendChild(thumbnail);
+thumbnail.className = "img";
+var image = document.createElement('img');
+thumbnail.appendChild(image);
 
+image.src = imgUrl;
+var detail = document.createElement('div');
+mainCard.appendChild(detail);
+detail.className = "details";
 
+var title = document.createElement('h3');
+detail.appendChild(title);
+title.innerHTML = clothingTitle;
 
-var firstCard = document.createElement('div');
-var imgContainer = document.createElement('div');
-var imgCard = document.createElement('img');
-firstCard.appendChild(imgContainer);
-imgContainer.appendChild(imgCard);
-firstCard.className = "card";
-firstCard.id = "1";
-imgContainer.className = "img";
-imgCard.src = "https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/7579188/2018/11/5/08a7b230-ee8f-46c0-a945-4e835a3c01c01541402833619-United-Colors-of-Benetton-Men-Sweatshirts-1271541402833444-1.jpg";
-
+var type = document.createElement('h4');
+detail.appendChild(type);
+type.innerHTML = brand;
 console.log(mainCard);
-mainCard.appendChild(firstCard);
+
+
+mainGrid.appendChild(mainCard);
+}
+
+for(var pos = 0; pos < productList.length; pos++){
+  clothing(productList[pos].preview, productList[pos].name, productList[pos].brand);
+}
+
+
+
+
